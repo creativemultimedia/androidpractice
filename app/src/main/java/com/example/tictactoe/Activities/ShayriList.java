@@ -3,7 +3,10 @@ package com.example.tictactoe.Activities;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.tictactoe.Adapters.CategoryAdapter;
@@ -61,6 +64,16 @@ public class ShayriList extends AppCompatActivity {
         listView=findViewById(R.id.list2);
         ShayriAdapter myAdapter=new ShayriAdapter(this,temp,category_img);
         listView.setAdapter(myAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent  intent=new Intent(ShayriList.this,ThirdPage.class);
+                intent.putExtra("shayriarr",temp);
+                intent.putExtra("pos",i);
+                startActivity(intent);
+            }
+        });
 
 
 
