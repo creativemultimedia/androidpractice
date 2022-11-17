@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tictactoe.Activities.CategoryList;
+import com.example.tictactoe.Config;
 import com.example.tictactoe.R;
 
 public class CategoryAdapter extends BaseAdapter {
@@ -45,7 +46,7 @@ public class CategoryAdapter extends BaseAdapter {
 
         textView.setText("Hello "+arr[i]);
         imageView.setImageResource(images[i]);
-
+//        textView.setBackgroundColor(l.getResources().getColor(Config.colors[i]));
         return view;
     }
 }
