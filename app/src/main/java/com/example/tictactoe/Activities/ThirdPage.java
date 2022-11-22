@@ -2,6 +2,7 @@ package com.example.tictactoe.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +30,10 @@ public class ThirdPage extends AppCompatActivity {
         textView=findViewById(R.id.text);
         textView.setText(shayri_arr[pos]);
 
+        Typeface typeface=Typeface.createFromAsset(getAssets(),"BRITANIC.TTF");
+        textView.setTypeface(typeface);
+
+
         b=findViewById(R.id.b);
         b.setOnClickListener(view -> {
             BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(this);
@@ -42,28 +47,12 @@ public class ThirdPage extends AppCompatActivity {
         });
         t=findViewById(R.id.t);
         t.setOnClickListener(view -> {
+//
             BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(this);
-            View view1= LayoutInflater.from(this).inflate(R.layout.fontsize,null);
+            View view1= LayoutInflater.from(this).inflate(R.layout.background,null);
 
-            SeekBar seekBar=view1.findViewById(R.id.seekbar);
-            seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-                @Override
-                public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-
-                    textView.setTextSize(seekBar.getProgress());
-                }
-
-                @Override
-                public void onStartTrackingTouch(SeekBar seekBar) {
-
-                }
-
-                @Override
-                public void onStopTrackingTouch(SeekBar seekBar) {
-
-                }
-            });
-
+            GridView gridView=view1.findViewById(R.id.grid);
+            gridView.setNumColumns(Config.fonts.length);
 
             bottomSheetDialog.setContentView(view1);
             bottomSheetDialog.show();
